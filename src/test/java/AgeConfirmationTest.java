@@ -2,8 +2,10 @@ import PageObject.HeaderPage;
 import PageObject.HeaderPageSteps;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.*;
 import java.util.List;
@@ -24,20 +26,23 @@ public class AgeConfirmationTest {
         headerPageSteps = new HeaderPageSteps(headerPage);
     }
     @Test
+    @DisplayName("Тест 1: Проверка отображения окна подтверждения возраста")
+    @Description("Окно подтверждения возраста должно появится сразу после окна выбора города для неавторизированного пользователя")
     public void testClickButtonSeverodvinsk() {
         // Действие: клик по кнопке "Северодвинск"
         headerPageSteps.clickButtonSeverodvinsk();
-
-        // Здесь можно добавить проверки, например, что город успешно выбран
-        // assertTrue(someCondition);
+        // Действие: отображение оуна подтверждения возраста
+        headerPageSteps.visibleWindowAgeVerefication();
     }
     @Test
     public void testClickButtonCitySelectClose() {
         // Действие:
         headerPageSteps.clickButtonSitySelectClose();
-
-        // Здесь можно добавить проверки, например, что город успешно выбран
-        // assertTrue(someCondition);
+        headerPageSteps.clickButtonCloseAgeConfirmation();
+    }
+    @AfterEach
+    public void tearDown() {
+        Selenide.closeWebDriver();
     }
 
 }

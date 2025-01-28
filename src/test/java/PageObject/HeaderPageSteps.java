@@ -5,6 +5,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import static com.codeborne.selenide.Condition.visible;
+
 public class HeaderPageSteps {
     private HeaderPage headerPage;
 
@@ -21,12 +24,24 @@ public class HeaderPageSteps {
     public void clickButtonSitySelectClose() {
         headerPage.buttonSitySelectClose.click();
     }
+
+    // Окно подтверждения возраста
     // Метод клика по кнопке "Мне больше 18 лет"
     public void clickButtonOverEighteenYears(){
         headerPage.buttonOverEighteenYears.click();
     }
-    // Метод клика по кнопке "Мне больше 18 лет"
+    // Метод клика по кнопке "Мне меньше 18 лет"
     public void clickButtonLessEighteenYears(){
         headerPage.buttonLessEighteenYears.click();
     }
+    // Метод клика по крестику в окне подтверждения возраста
+    public void clickButtonCloseAgeConfirmation(){
+        headerPage.buttonCloseAgeConfirmation.click();
+    }
+    // Метод клика по крестику в окне подтверждения возраста
+    public void visibleWindowAgeVerefication(){
+        headerPage.windowAgeConfirmation.shouldBe(visible);
+    }
+
+
 }
