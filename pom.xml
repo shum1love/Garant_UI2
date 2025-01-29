@@ -9,28 +9,28 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>23</maven.compiler.source> <!-- Обновлено на JDK 23 -->
+        <maven.compiler.target>23</maven.compiler.target> <!-- Обновлено на JDK 23 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- версия Aspectj -->
         <aspectj.version>1.9.7</aspectj.version>
         <!-- версия Allure -->
         <allure.version>2.15.0</allure.version>
-
     </properties>
+
     <dependencies>
         <!-- Зависимость для selenide -->
         <dependency>
-        <groupId>com.codeborne</groupId>
-        <artifactId>selenide</artifactId>
-        <version>LATEST</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>LATEST</version>
             <scope>test</scope>
         </dependency>
         <!-- Зависимость для JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
+            <version>5.11.4</version>
             <scope>test</scope>
         </dependency>
         <!-- модуль взаимодействия Allure и Junit -->
@@ -59,6 +59,7 @@
         </dependency>
 
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -97,13 +98,20 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>2.15.0</version> <!-- Обновленная версия -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <reportVersion>2.15.0</reportVersion>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
-
 
 </project>

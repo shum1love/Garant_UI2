@@ -7,10 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Selenide.*;
-import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
-import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class AgeConfirmationTest {
     private HeaderPage headerPage;
