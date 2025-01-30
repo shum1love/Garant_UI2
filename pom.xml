@@ -4,66 +4,69 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>Garant_UI2</artifactId>
+    <groupId>com.example.junit5</groupId>
+    <artifactId>junit5-java-maven</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>23</maven.compiler.source> <!-- Обновлено на JDK 23 -->
-        <maven.compiler.target>23</maven.compiler.target> <!-- Обновлено на JDK 23 -->
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- версия Aspectj -->
+
+        <!-- Версия Selenide -->
+        <selenide.version>6.17.1</selenide.version>
+        <!-- Версия AspectJ -->
         <aspectj.version>1.9.7</aspectj.version>
-        <!-- версия Allure -->
+        <!-- Версия Allure -->
         <allure.version>2.15.0</allure.version>
     </properties>
 
     <dependencies>
-        <!-- Зависимость для selenide -->
+        <!-- Selenide -->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
-            <version>LATEST</version>
-            <scope>test</scope>
+            <version>${selenide.version}</version>
         </dependency>
-        <!-- Зависимость для JUnit 5 -->
+
+        <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.11.4</version>
+            <version>5.9.3</version>
             <scope>test</scope>
         </dependency>
-        <!-- модуль взаимодействия Allure и Junit -->
+        <!-- Allure JUnit 5 Integration -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit4</artifactId>
+            <artifactId>allure-junit5</artifactId>
             <version>${allure.version}</version>
         </dependency>
+
+        <!-- Allure Selenide Integration -->
         <dependency>
-            <!-- модуль взаимодействия Allure и RestAssured -->
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-rest-assured</artifactId>
+            <artifactId>allure-selenide</artifactId>
             <version>${allure.version}</version>
         </dependency>
-        <!-- Для логов -->
+
+        <!-- AspectJ Weaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+        <!-- Логирование -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.32</version> <!-- версия может отличаться -->
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.16</version>
+            <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version> <!-- версия может отличаться -->
-        </dependency>
-
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <!-- настройка плагина maven-surefire-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
@@ -75,42 +78,27 @@
                     <properties>
                         <property>
                             <name>listener</name>
-                            <value>io.qameta.allure.junit4.AllureJunit4</value>
+                            <value>io.qameta.allure.junit5.AllureJunit5</value>
                         </property>
                     </properties>
                     <systemProperties>
                         <property>
-                            <!-- папка, в которую будут генерироваться отчёты Allure -->
                             <name>allure.results.directory</name>
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
-            <!-- подключение плагина allure-maven для вызова функций Allure с помощью Maven -->
+
+            <!-- Allure Maven Plugin -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.15.0</version> <!-- Обновленная версия -->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <version>2.10.0</version>
                 <configuration>
-                    <reportVersion>2.15.0</reportVersion>
+                    <reportVersion>${allure.version}</reportVersion>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
