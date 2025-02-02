@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 
 public class AgeConfirmationTest {
@@ -28,14 +30,18 @@ public class AgeConfirmationTest {
     public void testClickButtonSeverodvinsk() {
         // Действие: клик по кнопке "Северодвинск"
         headerPageSteps.clickButtonSeverodvinsk();
-        // Действие: отображение оуна подтверждения возраста
+        // Действие: Проверка на отображение окна подтверждения возраста
         headerPageSteps.visibleWindowAgeVerefication();
     }
     @Test
+    @DisplayName("Тест 2: Проверка закрытия окна при нажатии на кнопку 'Мне больше 18 лет'")
     public void testClickButtonCitySelectClose() {
-        // Действие:
+        // Действие: клик по кнопке "Закрыть" в окне выбора города
         headerPageSteps.clickButtonSitySelectClose();
-        headerPageSteps.clickButtonCloseAgeConfirmation();
+        // Действие: клик по кнопке "Мне больше 18 лет" в окне подтверждения возраста
+        headerPageSteps.clickButtonOverEighteenYears();
+        // Действие: Проверка на исчезание окна подтверждения возраста
+        headerPage.windowAgeConfirmation.shouldNotBe(visible);
     }
     @AfterEach
     public void tearDown() {
