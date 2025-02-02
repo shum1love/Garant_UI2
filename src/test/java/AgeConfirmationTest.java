@@ -41,6 +41,7 @@ public class AgeConfirmationTest {
         // Действие: клик по кнопке "Мне больше 18 лет" в окне подтверждения возраста
         headerPageSteps.clickButtonOverEighteenYears();
         // Действие: Проверка на исчезание окна подтверждения возраста
+        //
         headerPage.windowAgeConfirmation.shouldNotBe(visible);
     }
     @AfterEach
