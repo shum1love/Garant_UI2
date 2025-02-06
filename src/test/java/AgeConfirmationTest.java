@@ -26,7 +26,7 @@ public class AgeConfirmationTest {
     }
     @Test
     @DisplayName("Тест 1: Проверка отображения окна подтверждения возраста")
-    @Description("Окно подтверждения возраста должно появится сразу после окна выбора города для неавторизированного пользователя")
+    @Description("Окно подтверждения возраста должно появится сразу после окна выбора города для неавторизованного пользователя")
     public void testClickButtonSeverodvinsk() {
         // Действие: клик по кнопке "Северодвинск"
         headerPageSteps.clickButtonSeverodvinsk();
@@ -35,13 +35,32 @@ public class AgeConfirmationTest {
     }
     @Test
     @DisplayName("Тест 2: Проверка закрытия окна при нажатии на кнопку 'Мне больше 18 лет'")
-    public void testClickButtonCitySelectClose() {
+    public void testClickButtonOverAgeConfirmation() {
         // Действие: клик по кнопке "Закрыть" в окне выбора города
         headerPageSteps.clickButtonSitySelectClose();
         // Действие: клик по кнопке "Мне больше 18 лет" в окне подтверждения возраста
         headerPageSteps.clickButtonOverEighteenYears();
         // Действие: Проверка на исчезание окна подтверждения возраста
-        //
+        headerPage.windowAgeConfirmation.shouldNotBe(visible);
+    }
+    @Test
+    @DisplayName("Тест 3: Проверка закрытия окна при нажатии на кнопку 'Мне меньше 18 лет'")
+    public void testClickButtonLessAgeConfirmation() {
+        // Действие: клик по кнопке "Закрыть" в окне выбора города
+        headerPageSteps.clickButtonSitySelectClose();
+        // Действие: клик по кнопке "Мне меньше 18 лет" в окне подтверждения возраста
+        headerPageSteps.clickButtonLessEighteenYears();
+        // Действие: Проверка на исчезание окна подтверждения возраста
+        headerPage.windowAgeConfirmation.shouldNotBe(visible);
+    }
+    @Test
+    @DisplayName("Тест 4: Проверка закрытия окна при нажатии на кнопку 'крестик'")
+    public void testClickButtonCloseAgeConfirmation() {
+        // Действие: клик по кнопке "Закрыть" в окне выбора города
+        headerPageSteps.clickButtonSitySelectClose();
+        // Действие: клик по кнопке "Мне меньше 18 лет" в окне подтверждения возраста
+        headerPageSteps.clickButtonCloseAgeConfirmation();
+        // Действие: Проверка на исчезание окна подтверждения возраста
         headerPage.windowAgeConfirmation.shouldNotBe(visible);
     }
     @AfterEach
