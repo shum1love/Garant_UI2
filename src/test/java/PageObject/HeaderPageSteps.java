@@ -54,6 +54,15 @@ public class HeaderPageSteps {
         HeaderPage.tabAlcohol.click();
     }
     // Клик по вкладке "Пиво и слабоалкогольные напитки"
+    public void clickTabBeerLowAlcoholDrinks(){
+        HeaderPage.tabBeerLowAlcoholDrinks.click();
+    }
+    // Проверяем, что все изображения алкоголя не имеют класс 'blur'
+    public void checkAllAlcoholImagesVisible() {
+        HeaderPage.alcoholImages.forEach(image ->
+                image.shouldNotHave(Condition.attribute("class", "img-responsive 18plus blur"))
+        );
+    }
 
     // Проверяем, что все изображения алкоголя имеют класс 'blur'
     public void checkAllAlcoholImagesAreBlurred() {

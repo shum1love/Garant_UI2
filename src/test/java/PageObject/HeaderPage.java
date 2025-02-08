@@ -34,9 +34,9 @@ public class HeaderPage {
     // Список "Каталог товаров"
     public static final SelenideElement listProductCatalog = $(byClassName("menu__header"));
     // Вкладка "Алкоголь"
-    public static final SelenideElement tabAlcohol = $(byXpath(".//a[@href='https://shop.garant21.ru/alkogol']"));
+    public static final SelenideElement tabAlcohol = $(byXpath("//*[@id=\"category-module\"]/ul/li[8]/a/text()"));
     // Вкладка "Пиво и слабоалкогольные напитки"
-    public static final SelenideElement tabBeerLowAlcoholDrinks = $(byXpath("https://shop.garant21.ru/alkogol/pivo-i-slaboalkogolnye-napitki']"));
+    public static final SelenideElement tabBeerLowAlcoholDrinks = $(byXpath(".//*[@id=\"category-module\"]/ul/li[8]/div/a[1]"));
     // Все карточки алкоголя на странице
     public static final ElementsCollection alcoholImages = $$(byXpath("//div[contains(@class, 'product-thumb__image')]//img[contains(@class, '18plus')]"));
 
