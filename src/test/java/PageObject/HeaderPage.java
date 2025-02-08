@@ -1,11 +1,13 @@
 package PageObject;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static org.openqa.selenium.By.xpath;
 
 public class HeaderPage {
@@ -27,6 +29,16 @@ public class HeaderPage {
     public final SelenideElement buttonLessEighteenYears = $(byText("Мне меньше 18 лет"));
     // локатор крестика в окне подтверждения возраста
     public final SelenideElement buttonCloseAgeConfirmation = $(byXpath(".//button[@class='close' and text()='×']"));
+
+    // Страница с алкоголем
+    // Список "Каталог товаров"
+    public static final SelenideElement listProductCatalog = $(byClassName("menu__header"));
+    // Вкладка "Алкоголь"
+    public static final SelenideElement tabAlcohol = $(byXpath(".//a[@href='https://shop.garant21.ru/alkogol']"));
+    // Вкладка "Пиво и слабоалкогольные напитки"
+    public static final SelenideElement tabBeerLowAlcoholDrinks = $(byXpath("https://shop.garant21.ru/alkogol/pivo-i-slaboalkogolnye-napitki']"));
+    // Все карточки алкоголя на странице
+    public static final ElementsCollection alcoholImages = $$(byXpath("//div[contains(@class, 'product-thumb__image')]//img[contains(@class, '18plus')]"));
 
 
 }

@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import static com.codeborne.selenide.Condition.image;
 import static com.codeborne.selenide.Condition.visible;
 
 public class HeaderPageSteps {
@@ -41,6 +42,24 @@ public class HeaderPageSteps {
     // Метод клика по крестику в окне подтверждения возраста
     public void visibleWindowAgeVerefication(){
         headerPage.windowAgeConfirmation.shouldBe(visible);
+    }
+
+    // Страница с алкоголем
+    // Клик по списку "Каталог товаров"
+    public void clickListProductCatalog(){
+        HeaderPage.listProductCatalog.click();
+    }
+    // Клик по вкладке "Алкоголь"
+    public void clickTabAlcohol(){
+        HeaderPage.tabAlcohol.click();
+    }
+    // Клик по вкладке "Пиво и слабоалкогольные напитки"
+
+    // Проверяем, что все изображения алкоголя имеют класс 'blur'
+    public void checkAllAlcoholImagesAreBlurred() {
+        HeaderPage.alcoholImages.forEach(image ->
+                image.shouldHave(Condition.attribute("class", "img-responsive 18plus blur"))
+        );
     }
 
 

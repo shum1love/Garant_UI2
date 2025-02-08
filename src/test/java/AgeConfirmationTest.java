@@ -63,6 +63,16 @@ public class AgeConfirmationTest {
         // Действие: Проверка на исчезание окна подтверждения возраста
         headerPage.windowAgeConfirmation.shouldNotBe(visible);
     }
+
+    @Test
+    @DisplayName("Тест 5:")
+    public void testCheckAllAlcoholImagesAreBlurred(){
+        // Действие: клик по кнопке "Закрыть" в окне выбора города
+        headerPageSteps.clickButtonSitySelectClose();
+        // Действие: клик по кнопке "Мне меньше 18 лет" в окне подтверждения возраста
+        headerPageSteps.clickButtonCloseAgeConfirmation();
+
+    }
     @AfterEach
     public void tearDown() {
         Selenide.closeWebDriver();
