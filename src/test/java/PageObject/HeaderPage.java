@@ -11,6 +11,23 @@ import static com.codeborne.selenide.Selenide.$$;
 import static org.openqa.selenium.By.xpath;
 
 public class HeaderPage {
+    // Шапка сайта
+    // Локатор города в шапке сайта
+    public final SelenideElement cityHead = $(xpath(".//li[@class='top-links__li']//span[@class='hidden-sm hidden-md']"));
+    // Локатор "Оплата и доставка" в шапке сайта
+    public final SelenideElement payDeliveryHead = $(xpath(".//a[@title='Оплата и доставка']"));
+    // Локатор "Контакты и схема проезда" в шапке сайта
+    public final SelenideElement contactsDirectionsHead = $(xpath(".//a[@title='Контакты и схема проезда']"));
+    // Локатор "Бонусная программа" в шапке сайта
+    public final SelenideElement bonusProgramHead = $(xpath(".//a[@title='Бонусная программа']"));
+    // Локатор "Личный кабинет" в шапке сайта
+    public final SelenideElement privateAccountHead = $(xpath("//div[@id='account']//button[@data-toggle='dropdown']"));
+    // Локатор кнопки "Вход" в списке "Личный кабинет" в шапке сайта
+    public final SelenideElement inputPrivateAccountHead = $(xpath("//div[@id='account']//button[@data-toggle='dropdown']"));
+
+    // Окно выбора города
+    // Локатор окна выбора города
+    public final SelenideElement citySelectWindow = $(xpath(".//div[@class='modal-content']"));
     // локатор кнопки Северодвинск в окне выбора города
     public final SelenideElement buttonSeverodvinsk = $(xpath(".//a[text()='Северодвинск']"));
     // локатор кнопки Архангельск в окне выбора города
@@ -18,7 +35,7 @@ public class HeaderPage {
     // локатор кнопки Новодвинск в окне выбора города
     public final SelenideElement buttonNovodvinsk = $(xpath(".//a[text()='Новодвинск']"));
     // локатор кнопки крестик в окне выбора города
-    public final SelenideElement buttonSitySelectClose = $(xpath(".//button[text()='×']"));
+    public final SelenideElement buttonCitySelectClose = $(xpath(".//button[text()='×']"));
 
     // Окно подтверждения возраста
     // локатор окна подтверждения возраста

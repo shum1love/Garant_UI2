@@ -37,7 +37,7 @@ public class AgeConfirmationTest {
     @DisplayName("Тест 2: Проверка закрытия окна при нажатии на кнопку 'Мне больше 18 лет'")
     public void testClickButtonOverAgeConfirmation() {
         // Действие: клик по кнопке "Закрыть" в окне выбора города
-        headerPageSteps.clickButtonSitySelectClose();
+        headerPageSteps.clickButtonCitySelectClose();
         // Действие: клик по кнопке "Мне больше 18 лет" в окне подтверждения возраста
         headerPageSteps.clickButtonOverEighteenYears();
         // Действие: Проверка на исчезание окна подтверждения возраста
@@ -47,7 +47,7 @@ public class AgeConfirmationTest {
     @DisplayName("Тест 3: Проверка закрытия окна при нажатии на кнопку 'Мне меньше 18 лет'")
     public void testClickButtonLessAgeConfirmation() {
         // Действие: клик по кнопке "Закрыть" в окне выбора города
-        headerPageSteps.clickButtonSitySelectClose();
+        headerPageSteps.clickButtonCitySelectClose();
         // Действие: клик по кнопке "Мне меньше 18 лет" в окне подтверждения возраста
         headerPageSteps.clickButtonLessEighteenYears();
         // Действие: Проверка на исчезание окна подтверждения возраста
@@ -57,8 +57,8 @@ public class AgeConfirmationTest {
     @DisplayName("Тест 4: Проверка закрытия окна при нажатии на кнопку 'крестик'")
     public void testClickButtonCloseAgeConfirmation() {
         // Действие: клик по кнопке "Закрыть" в окне выбора города
-        headerPageSteps.clickButtonSitySelectClose();
-        // Действие: клик по кнопке "Мне меньше 18 лет" в окне подтверждения возраста
+        headerPageSteps.clickButtonCitySelectClose();
+        // Действие: клик по кнопке крестик в окне подтверждения возраста
         headerPageSteps.clickButtonCloseAgeConfirmation();
         // Действие: Проверка на исчезание окна подтверждения возраста
         headerPage.windowAgeConfirmation.shouldNotBe(visible);

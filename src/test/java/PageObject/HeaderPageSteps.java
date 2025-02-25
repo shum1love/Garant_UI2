@@ -17,13 +17,42 @@ public class HeaderPageSteps {
         this.headerPage = headerPage;
     }
 
+    // Шапка сайта
+    // Клик по городу в шапке сайта
+    public void clickCityHead(){
+        headerPage.cityHead.click();
+    }
+    // Клик по "Оплата и доставка" в шапке сайта
+    public void clickPayDeliveryHead(){
+        headerPage.payDeliveryHead.click();
+    }
+    // Клик по "Контакты и схема проезда" в шапке сайта
+    public  void clickContactsDirectionsHead(){
+        headerPage.contactsDirectionsHead.click();
+    }
+    // Клик по "Бонусная программа" в шапке сайта
+    public  void clickBonusProgramHead(){
+        headerPage.bonusProgramHead.click();
+    }
+    // Клик по "Личный кабинет" в шапке сайта
+    public  void clickPrivateAccountHead(){
+        headerPage.privateAccountHead.click();
+    }
+
+
+
+    //Окно выбора города
     // Метод клика по кнопке "Северодвинск"
     public void clickButtonSeverodvinsk() {
         headerPage.buttonSeverodvinsk.click();
     }
     // Метод клика по кнопке крестик
-    public void clickButtonSitySelectClose() {
-        headerPage.buttonSitySelectClose.click();
+    public void clickButtonCitySelectClose() {
+        headerPage.buttonCitySelectClose.click();
+    }
+    // Проверка отображения окна выбора города
+    public void checkVisibleCitySelectWindow(){
+        headerPage.citySelectWindow.shouldBe(visible);
     }
 
     // Окно подтверждения возраста
@@ -39,7 +68,7 @@ public class HeaderPageSteps {
     public void clickButtonCloseAgeConfirmation(){
         headerPage.buttonCloseAgeConfirmation.click();
     }
-    // Метод клика по крестику в окне подтверждения возраста
+    // Метод проверки отображения окна подтверждения возраста
     public void visibleWindowAgeVerefication(){
         headerPage.windowAgeConfirmation.shouldBe(visible);
     }

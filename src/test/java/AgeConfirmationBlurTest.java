@@ -28,7 +28,7 @@ public class AgeConfirmationBlurTest {
     @DisplayName("Тест 5: Проверка отображения карточек с алкоголем при нажатии на кнопку 'Мне больше 18 лет'")
     public void testCheckAllAlcoholImagesVisible(){
         // Действие: клик по кнопке "Закрыть" в окне выбора города
-        headerPageSteps.clickButtonSitySelectClose();
+        headerPageSteps.clickButtonCitySelectClose();
         // Действие: клик по кнопке "Мне больше 18 лет" в окне подтверждения возраста
         headerPageSteps.clickButtonOverEighteenYears();
         // Действие: Проверка отображения карточек с алкоголем
@@ -38,7 +38,7 @@ public class AgeConfirmationBlurTest {
     @DisplayName("Тест 6: Проверка замыливания карточек с алкоголем при нажатии на кнопку 'Мне меньше 18 лет'")
     public void testCheckAllAlcoholImagesAreBlurred(){
         // Действие: клик по кнопке "Закрыть" в окне выбора города
-        headerPageSteps.clickButtonSitySelectClose();
+        headerPageSteps.clickButtonCitySelectClose();
         // Действие: клик по кнопке "Мне меньше 18 лет" в окне подтверждения возраста
         headerPageSteps.clickButtonLessEighteenYears();
         // Действие: Проверка замыливания карточек с алкоголем
